@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+  
+{% block title %}Blog Informationn{% endblock title %}
+  
+{% block content %}
+<div class = "col-md-12">
+    <span> <h2 style="text-align:center"> <a href = "/add/" class = "btn btn-primary"> Add new </a></h2></span>
+    <span> Hello, {{request.user}}</span>
+    <div class = "table-responsive">
+    <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+    <thead>
+        <tr>
+
+            <th>Title</th>
+            <th>Content</th>
+            <th>Edit Blog</th>
+            <th>Remove Blog</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for blog in blogs %}
+        <tr>
+            <td>{{blog.title}}</td>
+            <td>{{blog.content}}</td>
+            <td>
+                <a href="/update/{{blog.pk}}" class = "btn btn-primary">Update</a>    
+            </td>
+            <td>
+                <a href="/delete/{{blog.pk}}" class = "btn btn-danger">Delete</a>
+            </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <span><h3 style="text-align: right" ><a href = {%url 'logout'%} class="btn btn-success" >Logout</a></h3></span>
+    </table>
+    </div>
+</div>
+
+{% endblock content %}

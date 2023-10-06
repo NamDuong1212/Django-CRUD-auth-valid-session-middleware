@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+  
+{% block title %}Add New Blog{% endblock title %}
+  
+{% block content %}
+<div class="col-md-12">   
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <br><br>
+        <div class="alert alert-danger" role="alert">
+            Are you sure you want to delete "{{ blogs.title }}"?
+        </div>
+
+        <p>
+            <a href="{% url 'retrieve-blog' %}"class = "btn btn-primary"><--Return</a>
+        </p>
+
+        <p>
+            <input class="btn btn-danger" type="submit" value="Confirm">
+        </p>
+    </form>
+</div>
+
+{%endblock content%}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+  
+{% block title %}Edit Blog{% endblock title %}
+  
+{% block content %}
+<div class="col-md-12">    
+    <form method="POST" class="post-form" >  
+    {% csrf_token %}  
+    <div class="container">  
+        <div class="col-12">  
+        <h3>Edit Blog</h3>  
+        </div> 
+        <div class = "mb-3">
+            <label> Title: </label>
+            {{ form.title }}
+            <div class="alert alert-danger">
+                {{ form.title.errors }}
+            </div>
+        </div>
+        <div class = "mb-3">
+            <label> Content: </label>
+            {{ form.content }}
+            <div class="alert alert-danger">
+                {{ form.content.errors }}
+            </div>
+        </div>
+            <button type="submit" class="btn btn-success"> Submit</button>
+        </div>
+    </div>
+    </form>
+</div>
+{% endblock content%}
